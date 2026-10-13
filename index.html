@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Angel Marion ❤️</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Georgia, "Times New Roman", serif;
+  color: white;
+  text-align: center;
+  background: linear-gradient(145deg, #180b32, #51205e, #a33d78);
+  overflow-x: hidden;
+}
+
+.screen {
+  display: none;
+  min-height: 100vh;
+  padding: 35px 20px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  animation: appear 0.8s ease;
+}
+
+.screen.active { display: flex; }
+
+.card {
+  width: 100%;
+  max-width: 650px;
+  padding: 30px 24px;
+  border: 1px solid #ffffff42;
+  border-radius: 25px;
+  background: #ffffff12;
+  box-shadow: 0 10px 40px #00000035;
+  backdrop-filter: blur(8px);
+}
+
+h1 {
+  color: #ffd2ef;
+  font-size: clamp(2rem, 8vw, 3.2rem);
+  text-shadow: 0 0 20px #ff70c8;
+}
+
+h2 { color: #ffe0f4; }
+
+p {
+  font-size: 1.12rem;
+  line-height: 1.9;
+}
+
+.small { font-size: 0.95rem; color: #f4d9f0; }
+
+button {
+  border: none;
+  border-radius: 30px;
+  padding: 14px 23px;
+  margin: 9px 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #551348;
+  background: linear-gradient(120deg, #ffd4ef, #ff9acb);
+  cursor: pointer;
+  box-shadow: 0 4px 18px #00000028;
+  transition: transform 0.2s;
+}
+
+button:active { transform: scale(0.96); }
+
+.heart {
+  font-size: 65px;
+  animation: heartbeat 1.3s infinite;
+}
+
+.letter {
+  text-align: left;
+  white-space: pre-line;
+  line-height: 2;
+}
+
+.music {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.signature {
+  color: #ffd1ef;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.floating {
+  position: fixed;
+  bottom: -45px;
+  pointer-events: none;
+  z-index: 0;
+  animation: floatUp linear forwards;
+}
+
+.screen, button, audio { position: relative; z-index: 1; }
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.18); }
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatUp {
+  to { transform: translateY(-115vh) rotate(25deg); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<audio id="loveSong" loop preload="auto">
+  <source src="My%20Marion.mp3" type="audio/mpeg">
+</audio>
+
+<!-- SCREEN 1 -->
+<section class="screen active" id="s1">
+  <div class="card">
+    <div class="heart">❤️</div>
+    <p class="small">A little world made just for you...</p>
+    <h1>For My Angel, Marion 😇</h1>
+    <p>
+      Hey, beautiful girl. 🥹💗<br>
+      Before you continue, I need you to know that
+      someone has been smiling while making this for you.
+    </p>
+    <p>And yes... that someone is your Elly. 😂❤️</p>
+    <button onclick="startSurprise()">Open Your Little Surprise 💌</button>
+    <p class="small">🎶 Your special song awaits inside.</p>
+  </div>
+</section>
+
+<!-- SCREEN 2 -->
+<section class="screen" id="s2">
+  <div class="card">
+    <div class="heart">💗</div>
+    <h1>First, let me confess...</h1>
+    <p>
+      Marion, do you know that you have become one of those
+      people who can make an ordinary day feel special?
+      Sometimes a simple message from you is enough to put
+      a smile on my face. 🥹
+    </p>
+    <p>
+      And honestly, why is it that someone can be so sweet
+      and still manage to disturb your peace with just one
+      little message? 😂❤️
+    </p>
+    <p>
+      You have your own special place in my heart, and
+      I wouldn't trade the memories we are making for anything.
+    </p>
+    <button onclick="next(3)">There's more, my Angel 🥹</button>
+  </div>
+</section>
+
+<!-- SCREEN 3 -->
+<section class="screen" id="s3">
+  <div class="card">
+    <h1>My favourite human 😂❤️</h1>
+    <p>
+      Let me tell you something, Marion.
+      Loving you means appreciating your sweet side,
+      your funny side, your serious side, and even those
+      moments when I don't know what you're thinking. 😂
+    </p>
+    <p>
+      It means enjoying our conversations, laughing at
+      our little jokes, learning how to understand each
+      other, and making memories that we can look back
+      on with happy hearts.
+    </p>
+    <p>
+      And please, if you ever catch me smiling at my phone,
+      don't ask too many questions. 😭😂
+      You might be the reason!
+    </p>
+    <p>
+      But seriously, my Angel, I am grateful that our paths
+      crossed. You are someone I want to keep appreciating,
+      not only with beautiful words but with the way I treat you.
+    </p>
+    <button onclick="next(4)">Now, the letter I wrote for you 💌</button>
+  </div>
+</section>
+
+<!-- SCREEN 4 -->
+<section class="screen" id="s4">
+  <div class="card">
+    <div class="heart">💌</div>
+    <h1>To my beautiful Marion</h1>
+    <div class="letter" id="letter"></div>
+    <button id="letterButton" onclick="revealLetter()">
+      Read My Letter ❤️
+    </button>
+    <button id="letterNext" style="display:none" onclick="next(5)">
+      One last thing, my Angel 🥹
+    </button>
+  </div>
+</section>
+
+<!-- SCREEN 5 -->
+<section class="screen" id="s5">
+  <div class="card">
+    <h1>My promise to you ❤️</h1>
+    <p>
+      I cannot promise that every day will be perfect.
+      Life will bring busy days, unexpected challenges,
+      and moments when we need patience with each other.
+    </p>
+    <p>
+      But I hope we keep choosing kindness, honesty,
+      communication, laughter, and understanding.
+      I hope we give each other room to grow and celebrate
+      each other's dreams along the way.
+    </p>
+    <p>
+      I want my love to be something you can feel in the
+      little things: in my respect for you, my encouragement,
+      my listening, and my willingness to learn.
+    </p>
+    <p>
+      You deserve to feel valued, Marion—not just today,
+      not just when everything is easy, but in the ordinary
+      moments that make up real life. 💗
+    </p>
+    <button onclick="next(6)">Open your final message 🎁</button>
+  </div>
+</section>
+
+<!-- SCREEN 6 -->
+<section class="screen" id="s6">
+  <div class="card">
+    <div class="heart">💖</div>
+    <h1>My Angel, Marion 😇</h1>
+    <p>
+      If this little website could speak, it would tell you
+      how much love, thought, and happiness went into making it.
+    </p>
+    <p>
+      Thank you for the smiles, the conversations, the memories,
+      and the opportunity to know you more deeply.
+      I hope we continue building something beautiful,
+      one honest and caring moment at a time.
+    </p>
+    <p>
+      Keep smiling, keep dreaming, and never forget how
+      much you deserve to be appreciated. 🥹❤️
+    </p>
+    <p class="signature">
+      Elly always loves Marion. ❤️<br>
+      You're my Angel 😇🥰
+    </p>
+    <p class="small">Made with love, just for you. 💌</p>
+    <button onclick="replay()">Read it all again 🔁</button>
+  </div>
+</section>
+
+<script>
+const song = document.getElementById("loveSong");
+
+function next(number) {
+  document.querySelectorAll(".screen").forEach(screen => {
+    screen.classList.remove("active");
+  });
+  document.getElementById("s" + number).classList.add("active");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function startSurprise() {
+  song.play().catch(() => {
+    alert("Tap the Play button on the music player to hear your song 🎶");
+  });
+  next(2);
+}
+
+const letterText = `My dearest Marion, my Angel, ❤️
+
+Sometimes I wish I could find the perfect words to explain what you mean to me. I wish I could open my heart like a book and let you read every beautiful thought I have about you. Maybe then you would understand why you are so special to me.
+
+You are not simply a name on my phone or a person I talk to when I have free time. You are someone whose happiness matters to me, someone whose dreams I want to see come true, and someone I genuinely want to understand more with every passing day.
+
+When I think about you, I think about the little things. Your smile. Your laughter. Our conversations. Those moments when we make each other laugh without even trying. Sometimes it is the smallest things that become the memories we treasure most. 🥹💗
+
+My Angel, I want you to know that you do not have to be perfect to be appreciated by me. You can have difficult days. You can feel tired, confused, quiet, or uncertain. You can have dreams that take time to achieve. You are allowed to be human, to learn, to change, and to grow.
+
+I hope I can be someone who encourages you when life feels challenging, celebrates when something good happens to you, listens when you need to talk, and respects you when you need time for yourself.
+
+I never want my love to become a burden you have to carry. I want it to be a beautiful part of your life—something that brings you comfort, joy, laughter, and the freedom to be yourself.
+
+And Marion, let me be a little funny for a moment. 😂❤️ How did you manage to become so special that I am sitting here building an entire website instead of simply sending you a message? Look at the effort you have caused! If coding could blush, this whole laptop would be pink by now. 😭💗
+
+But beneath all those jokes is something sincere: you matter to me.
+
+I appreciate the person you are today, and I am excited to see the person you will become. I want you to pursue your education, your ambitions, your happiness, and all the things that make you proud of yourself. I hope we can encourage each other to become better people without losing the joy that brought us together.
+
+If the future allows us to keep walking beside each other, I hope we create a love story filled with friendship, trust, respect, silly jokes, unforgettable memories, and a thousand ordinary days that become extraordinary because we share them.
+
+I cannot predict every chapter of our story. What I can do is be honest about how I feel today: I care about you deeply, I value what we share, and I want to treat your heart with kindness.
+
+Thank you for being my Marion. Thank you for the happiness you have brought into my life. Thank you for being someone worth making this little surprise for.
+
+Whenever you look back at this page, I hope you smile. I hope you remember that someone took time out of his day to make something with you in mind. And I hope you always feel free to tell me what is in your heart, because your feelings matter too.
+
+No matter how much life changes, I hope you never stop believing in your dreams, in your worth, and in the beautiful things still ahead of you.
+
+My Angel, you are appreciated more than this little screen could ever explain. If I could give you one wish, it would be that you could see yourself with the same kindness you give to the people you care about.
+
+Keep that beautiful smile. Keep being you. And let us make the most of every beautiful moment we get. ❤️
+
+With all my love,
+Your Elly 💌`;
+
+let letterShown = false;
+
+function revealLetter() {
+  if (letterShown) return;
+
+  letterShown = true;
+  document.getElementById("letter").textContent = letterText;
+  document.getElementById("letterButton").style.display = "none";
+  document.getElementById("letterNext").style.display = "inline-block";
+}
+
+function replay() {
+  letterShown = false;
+  document.getElementById("letter").textContent = "";
+  document.getElementById("letterButton").style.display = "inline-block";
+  document.getElementById("letterNext").style.display = "none";
+  song.currentTime = 0;
+  next(1);
+}
+
+function makeHeart() {
+  const heart = document.createElement("div");
+  heart.className = "floating";
+  heart.textContent = ["❤️", "💗", "💖", "💕", "✨", "😇"][
+    Math.floor(Math.random() * 6)
+  ];
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (16 + Math.random() * 22) + "px";
+  heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 10000);
+}
+
+setInterval(makeHeart, 650);
+</script>
+</body>
+</html>
